@@ -26,3 +26,32 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+ require 'spec_helper'
+
+
+//说明
+
+ TEST rspec缺少核心包
+module ::RSpec::Core
+    class ExampleGroup
+      include Capybara::DSL
+      include Capybara::RSpecMatchers
+    end
+end
+end
+
+
+
+bundle exec rspec spec/.
+
+bundle exec rspec spec/requests/static_pages_spec.rb
+
+
+创建分支修改代码，合并再提交
+git checkout -b static_pages_spec
+//修改代码
+git add .
+git commit -m "modify in new branch"
+git checkout master
+git merge static_pages_spec
+git push
